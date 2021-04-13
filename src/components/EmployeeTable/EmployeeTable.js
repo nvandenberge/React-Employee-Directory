@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./EmployeeTable.css";
 import API from "../../utils/API";
+import EmployeeRow from '../EmployeeRow/EmployeeRow';
 
 class EmployeeTable extends Component {
   state = {
@@ -46,7 +47,20 @@ class EmployeeTable extends Component {
             </tr>
           </thead>
           <tbody>
-           
+            {this.state.employees
+              .map((e, index) => {
+                return (
+                  <EmployeeRow
+                    key={index}
+                    image={e.image}
+                    firstName={e.firstName}
+                    lastName={e.lastName}
+                    dob={e.dob}
+                    phone={e.phone}
+                    email={e.email}
+                  />
+                );
+              })}
           </tbody>
         </table>
       </div>

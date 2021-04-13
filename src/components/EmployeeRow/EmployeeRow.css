@@ -1,0 +1,12 @@
+.employee-image {
+    border-radius: 5px;
+}
+
+tr:not(:last-child):after {
+    border-bottom: 2px red solid;
+}
+
+.employee-row {
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+}
