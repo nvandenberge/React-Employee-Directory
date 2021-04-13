@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./EmployeeTable.css";
 import API from "../../utils/API";
-import EmployeeRow from '../EmployeeRow/EmployeeRow';
+import EmployeeRow from "../EmployeeRow/EmployeeRow";
+import Filter from "../Filter/Filter";
 
 class EmployeeTable extends Component {
   state = {
     employees: [],
+    filter: "",
   };
 
   componentDidMount() {
@@ -32,9 +34,16 @@ class EmployeeTable extends Component {
         });
   }
 
+  setFilter = (e) => {
+    this.setState({
+      filter: e.target.value,
+    });
+  };
+
   render() {
     return (
       <div className="table-wrapper">
+        <Filter filter={this.state.filter} setFilter={this.setFilter} />
         <table>
           <thead>
             <tr>
@@ -48,6 +57,11 @@ class EmployeeTable extends Component {
           </thead>
           <tbody>
             {this.state.employees
+              .filter((e) =>
+                e.lastName
+                  .toLowerCase()
+                  .includes(this.state.filter.toLowerCase())
+              )
               .map((e, index) => {
                 return (
                   <EmployeeRow
