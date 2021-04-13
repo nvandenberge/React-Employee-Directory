@@ -28,7 +28,7 @@ An employee directory generated using the [Random User API](https://randomuser.m
 
 ## Usage
 
-Heroku Deployment: 
+Deployment: https://nvandenberge.github.io/React-Employee-Directory/
 
 ![React Employee Tracker](/public/images/react-employee-directory.png)
 
